@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==2.9.1
+pytest-pep8==1.0.6
+pytest-pythonpath==0.7
