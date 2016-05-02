@@ -1,6 +1,30 @@
 OCSP Responder
 ==============
 
+.. image:: https://img.shields.io/travis/threema-ch/ocspresponder/master.svg?maxAge=2592000
+    :target: https://travis-ci.org/threema-ch/ocspresponder
+    :alt: Build status
+
+.. image:: https://img.shields.io/pypi/v/nine.svg?maxAge=2592000
+    :target: https://pypi.python.org/pypi/ocspresponder
+    :alt: PyPI Version
+
+.. image:: https://img.shields.io/pypi/dm/ocspresponder.svg?maxAge=2592000
+    :target: https://pypi.python.org/pypi/ocspresponder
+    :alt: PyPI Downloads
+
+.. image:: https://img.shields.io/pypi/l/ocspresponder.svg?maxAge=2592000
+    :target: https://pypi.python.org/pypi/ocspresponder
+    :alt: License
+
+.. image:: https://img.shields.io/pypi/pyversions/ocspresponder.svg?maxAge=2592000
+    :target: https://pypi.python.org/pypi/ocspresponder
+    :alt: Python Versions
+
+.. image:: https://img.shields.io/pypi/status/ocspresponder.svg?maxAge=2592000
+    :target: https://pypi.python.org/pypi/ocspresponder
+    :alt: Stability Status
+
 RFC 6960 compliant OCSP Responder framework written in Python 3.5+.
 
 It is based on the ocspbuilder_ and asn1crypto_ libraries. The HTTP
