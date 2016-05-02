@@ -2,8 +2,8 @@
 
 RFC 6960 compliant OCSP Responder framework written in Python 3.5+.
 
-It is based on the [ocspbuilder][1] and [asn1crypto][2] libraries. The server
-is implemented using [Bottle][3].
+It is based on the [ocspbuilder][1] and [asn1crypto][2] libraries. The HTTP
+server is implemented using [Bottle][3].
 
 Current status: Alpha. Don't use for production yet.
 
@@ -17,7 +17,7 @@ Current status: Alpha. Don't use for production yet.
 
 **Supported extensions**
 
-- Nonce
+- Nonce (RFC 6960 Section 4.4.1)
 
 **Not (yet) implemented**
 
@@ -26,8 +26,8 @@ Current status: Alpha. Don't use for production yet.
 
 ## Usage
 
-Right now, `ocspresponder` assumes that the OCSP responder has a custom keypair
-just for signing OCSP responses.
+Right now, `ocspresponder` assumes the usage of a custom keypair just for
+signing OCSP responses.
 
 To be able to instantiate the `OCSPResponder` server, you need to provide this
 keypair as well as the certificate of the issueing CA.
@@ -40,10 +40,10 @@ OCSP_KEY = 'path/to/responder_key.pem'
 
 Furthermore you need to provide two custom functions:
 
-- A function that - given a certificate serial - will return the appropriate
+- A function that – given a certificate serial – will return the appropriate
   :class:`CertificateStatus` and - depending on the status - a revocation
   datetime.
-- A function that - given a certificate serial - will return the corresponding
+- A function that – given a certificate serial – will return the corresponding
   certificate as a string.
 
 You're expected to implement these functions yourself. In the future, drop-in
