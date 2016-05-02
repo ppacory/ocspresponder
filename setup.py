@@ -5,7 +5,7 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Load README
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 # Load requirements
@@ -46,6 +46,6 @@ setup(
     packages=['ocspresponder'],
     install_requires=requirements,
     package_data={
-        '': ['README.md', 'LICENSE.txt', 'CHANGELOG.md', 'requirements.txt'],
+        '': ['README.rst', 'LICENSE.txt', 'CHANGELOG.md', 'requirements.txt'],
     },
 )
