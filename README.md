@@ -106,6 +106,40 @@ To run the test, install `requirements-dev.txt` using pip and run pytest:
     $ py.test -v
 
 
+## Release process
+
+Update version number in `setup.py` and `CHANGELOG.md`:
+
+    vim -p setup.py CHANGELOG.md
+
+Do a commit and signed tag of the release:
+
+    export VERSION={VERSION}
+    git add setup.py CHANGELOG.md
+    git commit -m "Release v${VERSION}"
+    git tag -u C75D77C8 -m "Release v${VERSION}" v${VERSION}
+
+Build source and binary distributions:
+
+    python3 setup.py sdist
+    python3 setup.py bdist_wheel
+
+Sign files:
+
+    gpg --detach-sign -u C75D77C8 -a dist/ocspresponder-${VERSION}.tar.gz
+    gpg --detach-sign -u C75D77C8 -a dist/ocspresponder-${VERSION}-py3-none-any.whl
+
+Register package on PyPI:
+
+    twine3 register -r pypi-threema dist/ocspresponder-${VERSION}.tar.gz
+
+Upload package:
+
+    twine3 upload -r pypi-threema dist/ocspresponder-${VERSION}*
+    git push
+    git push --tags
+
+
 ## License
 
     Copyright 2016 Threema GmbH
