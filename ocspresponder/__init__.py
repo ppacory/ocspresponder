@@ -224,6 +224,6 @@ class OCSPResponder:
             content_type='application/ocsp-response',
         )
 
-    def serve(self, port=8080, debug=False):
+    def serve(self, host='127.0.0.1', port=8080, debug=False):
         logger.info('Launching %sserver on port %d', 'debug' if debug else '', port)
-        self._app.run(port=port, debug=debug)
+        self._app.run(host=host, port=port, debug=debug)
